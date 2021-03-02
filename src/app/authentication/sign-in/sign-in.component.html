@@ -1,0 +1,86 @@
+<!-- <div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      <p>{{errorMessage}}</p>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <div class="row" style="display: flex; justify-content: center; color: gray;">
+        <p>Sign in to start your session</p>
+      </div>
+      <div class="form-group" *ngIf="!isLoginMode">
+        <input type="text" id="nickname" class="form-control" name="nickname" placeholder="Nickname" ngModel #nickname="ngModel" required>
+        <span class="help-block" *ngIf="nickname.touched && nickname.invalid"> Please enter your nickname</span>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" class="form-control" name="userEmail" placeholder="Username" ngModel #username="ngModel" required email>
+        <span class="help-block" *ngIf="username.touched && username.invalid"> Please enter your email</span>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control" name="userPassword" placeholder="Password" #password="ngModel" ngModel required minlength="6">
+        <span class="help-block" *ngIf="password.touched && password.invalid"> Password should be more than 5 characters</span>
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit" [disabled]="authForm.invalid">{{ isLoginMode ? "Login" : "Sign Up"}}</button> |
+        <button class="btn btn-primary" type="button" (click)="onSwitchMode()">{{isLoginMode ? "Switch To Sign Up":
+          "Switch To Login"}}</button>
+      </div>
+    </form>
+
+    <div class="form-group text-center">
+      <a routerLink='/ForgetPassword'>Forget Password</a>
+      </div>
+      <div class="text-center">Not registered yet?<a (click)="onSwitchMode()"> Click here</a></div>
+  </div>
+</div>
+ -->
+
+<div class="container">
+  <div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        <p>{{errorMessage}}</p>
+      </div>
+      <div class="row" style="display: flex; justify-content: center; color: gray;">
+        <p>Sign in to start your session.</p>
+      </div>
+      <div class="row" style="display: flex; justify-content: center; color: gray;">
+        <p> Sign up if you don't have any account yet.</p>
+      </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+        <fieldset>
+          <hr class="colorgraph">
+          <div class="form-group">
+            <input type="email" id="email" class="form-control input-lg" name="userEmail" placeholder="Username" ngModel #username="ngModel" required email>
+            <span class="help-block" *ngIf="username.touched && username.invalid"> Please enter your email</span>
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" class="form-control input-lg" name="userPassword" placeholder="Password" #password="ngModel" ngModel required minlength="6">
+            <span class="help-block" *ngIf="password.touched && password.invalid"> Password should be more than 5 characters</span>
+          </div>
+          <div class="form-group text-right">
+            <a routerLink='/ForgetPassword'>Forgot Password?</a>
+          </div>
+          <div class="form-group text-left">
+            <a (click)="onSwitchMode()">{{isLoginMode ? "Switch To Sign Up":
+              "Switch To Login"}}</a>
+          </div>
+          <hr class="colorgraph">
+          <div class="row" style="display: flex; justify-content: center; color: gray;">
+            <div class="col-xs-6 col-sm-6 col-md-6" *ngIf="isLoginMode" >
+              <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In" [disabled]="authForm.invalid">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6" *ngIf="!isLoginMode">
+              <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="authForm.invalid">Register</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div>
+  <iframe src="https://www.google.com/search?igu=1" width="100%" [style.height.px]="innerHeight"></iframe>
+</div>
+
+<app-alert *ngIf="isFirstTimeDashboardLoading" (alertIsClosed)="onCloseAlert()"></app-alert>

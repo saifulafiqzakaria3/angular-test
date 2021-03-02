@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- <div class="navbar-header" *ngIf="!isLoggedIn">
+      <a class="navbar-brand" routerLink="/Dashboard">Welcome {{name}}</a>
+    </div> -->
+    <div class="row row1">
+      <ul class="nav navbar-nav navbar-right">
+        <li style="color: green;">Time: {{currentTime | date: "shortTime"}}</li>
+      </ul>
+    </div>
+    <div class="row row2">
+      <div class="col-sm-2">
+        <h2 style="margin:0px;"><a class="smallnav menu">Welcome</a></h2>
+        <h1 style="margin:0px;"><a class="largenav" routerLink="/Dashboard">Welcome {{name}}</a></h1>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active"><a class="clearfix" (click)="onAuthentication()"><span
+              class="glyphicon glyphicon-log-in"></span>{{ isLoggedIn ? " Logout " : " Login "}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

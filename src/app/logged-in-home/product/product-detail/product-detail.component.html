@@ -1,0 +1,32 @@
+
+<div *ngIf="selectedProduct">
+  <div class="container-fluid m-0 p-0">
+    <h2 class="text-center d-block font-weight-bold text-danger text-uppercase">{{selectedProduct.name}}</h2>
+    <img [src]="selectedProduct.imagePath" class="img-responsive center" style="max-height: 300px;">
+    <span class="bottom-line d-block mx-auto mt-3 mb-4"></span>
+  </div>
+
+  <br>
+
+  <table>
+    <tr>
+      <td>Description</td>
+      <td> <p>{{selectedProduct.description}}</p></td>
+    </tr>
+    <tr class="title-row">
+      <th>Variance</th>
+      <td></td>
+    </tr>
+    <tr *ngFor="let item of selectedProduct.variance">
+      <td>{{item.info | titlecase}}</td>
+      <td>RM {{item.price | number}}</td>
+    </tr>
+  </table>
+
+  <br>
+  <a class="back" (click)="onBackToProductList()">&laquo; Back To Product List</a>
+</div>
+
+<div *ngIf="!selectedProduct" style="text-align: center; margin: auto; padding: 70px 0;">
+  <h1 class="center-block" style="color: red;">Invalid Product ID</h1>
+</div>
